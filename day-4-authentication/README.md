@@ -16,7 +16,7 @@ By the end of this day, the API can accept login requests and respond appropriat
 
 ## Concepts Covered
 
-- What authentication is (and what it is not)
+- What authentication is
 - Difference between authentication and authorization
 - Login endpoints in REST APIs
 - Handling credentials in Express
