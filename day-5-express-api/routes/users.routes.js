@@ -1,13 +1,8 @@
-import express from 'express'
-import { authMiddleware } from '../middlewares/auth.middleware.js'
+import { Router } from 'express'
+import { getUsers } from '../controllers/user.controller.js'
 
-const router = express.Router()
+const router = Router()
 
-router.get('/', authMiddleware, (req, res) => {
-  res.json({
-    message: 'Protected user data',
-    user: req.user,
-  })
-})
+router.get('/', getUsers)
 
 export default router

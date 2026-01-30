@@ -1,28 +1,8 @@
-import express from 'express'
-import { users } from '../data/users.js'
+import { Router } from 'express'
+import { login } from '../controllers/auth.controller.js'
 
-const router = express.Router()
+const router = Router()
 
-router.post('/login', (req, res) => {
-  const { email, password } = req.body
-
-  const user = users.find(
-    (u) => u.email === email && u.password === password
-  )
-
-  if (!user) {
-    return res.status(401).json({ message: 'Invalid credentials' })
-  }
-
-  // Fake token for educational purposes
-  return res.json({
-    token: 'valid-token',
-    user: {
-      id: user.id,
-      email: user.email,
-      role: user.role,
-    },
-  })
-})
+router.post('/login', login)
 
 export default router
